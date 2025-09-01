@@ -3,6 +3,7 @@ from .models import Cart, CartItem
 from games.models import Game
 from games.serializers import GameSerializer
 
+
 class CartItemSerializer(serializers.ModelSerializer):
     game = GameSerializer(read_only=True)
     game_id = serializers.PrimaryKeyRelatedField(

@@ -56,4 +56,5 @@ Access the API at: http://127.0.0.1:8000/
 ### 💬 Contact
 
 👤 Kaue Barbi
-📧 kauebarbi@email.com
+
+📧 kauebarbicode@email.com

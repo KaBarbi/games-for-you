@@ -33,7 +33,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gamesforyou.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -71,10 +71,16 @@ ROOT_URLCONF = 'setup.urls'
 
 # Permitir CORS durante dev (ajuste origens para produção)
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Vite dev server
+    "https://gamesforyou.onrender.com",
+    "http://localhost:5173"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://gamesforyou.onrender.com"
+]
+
 
 TEMPLATES = [
     {
@@ -146,7 +152,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 

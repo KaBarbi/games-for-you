@@ -33,8 +33,11 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['gamesforyou.onrender.com',
-                 'localhost', '127.0.0.1',  ".onrender.com", ".vercel.app"]
+ALLOWED_HOSTS = [
+    "gamesforyou.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -58,26 +61,29 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 
 ROOT_URLCONF = 'setup.urls'
 
 # Permitir CORS durante dev (ajuste origens para produção)
 CORS_ALLOWED_ORIGINS = [
-    "https://games-for-you-nu.vercel.app",
+    "https://games-for-you.onrender.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://games-for-you-nu.vercel.app",
+    "https://gamesforyou.onrender.com",
+    "https://games-for-you.onrender.com",
 ]
+
 
 CORS_ALLOW_CREDENTIALS = True
 

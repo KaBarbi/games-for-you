@@ -33,7 +33,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['gamesforyou.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['gamesforyou.onrender.com',
+                 'localhost', '127.0.0.1',  ".onrender.com", ".vercel.app"]
 
 
 # Application definition
@@ -71,16 +72,14 @@ ROOT_URLCONF = 'setup.urls'
 
 # Permitir CORS durante dev (ajuste origens para produção)
 CORS_ALLOWED_ORIGINS = [
-    "https://gamesforyou.onrender.com",
-    "http://localhost:5173"
+    "https://games-for-you-nu.vercel.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://games-for-you-nu.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://gamesforyou.onrender.com"
-]
-
 
 TEMPLATES = [
     {

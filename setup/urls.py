@@ -13,7 +13,7 @@ router.register(r'cart-items', CartItemViewSet, basename="cartitem")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include(router.urls)),
+    path("", include(router.urls)),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

@@ -1,5 +1,5 @@
 
-# Games For You – Backend (Django + Neon PostgreSQL)
+# 🎮 Games For You – Backend (Django + Neon PostgreSQL)
 
 This repository contains the backend API for Games For You, an e-commerce platform for digital games.
 
@@ -8,7 +8,7 @@ The backend is built with Django, Django REST Framework, Neon PostgreSQL, CORS, 
 (The project is still in development.)
 
 
-## Tech Stack
+## 🚀 Technologies Used
 
 - Python 3
 
@@ -31,6 +31,13 @@ The backend provides a REST API for:
 - Shopping cart
 
 - Orders
+
+---
+### 💬 Contact
+
+👤 Kaue Barbi
+
+📧 kauebarbicode@email.com
 
 
 

@@ -5,6 +5,10 @@ from games.views import GameViewSet
 from cart.views import CartViewSet, CartItemViewSet
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 router = DefaultRouter()
 router.register(r'games', GameViewSet, basename="game")
@@ -14,6 +18,10 @@ router.register(r'cart-items', CartItemViewSet, basename="cartitem")
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(router.urls)),
+    path("api/", include("users.urls")),
+    path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

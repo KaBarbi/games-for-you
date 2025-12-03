@@ -8,7 +8,7 @@ from .serializers import RegisterSerializer, LoginSerializer, UserSerializer
 
 
 class RegisterView(APIView):
-    permission_classes = [AllowAny]   
+    permission_classes = [AllowAny]
 
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -25,7 +25,7 @@ class RegisterView(APIView):
 
 
 class LoginView(TokenObtainPairView):
-    permission_classes = [AllowAny]   
+    permission_classes = [AllowAny]
     serializer_class = LoginSerializer
 
 
@@ -35,3 +35,15 @@ class UserDetailView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
+
+
+class UserUpdateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def put(self, request):
+        user = request.user
+        serializer = UserSerializer(user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
